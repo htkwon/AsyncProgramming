@@ -1,7 +1,7 @@
 # AsyncProgramming
 비동기적 프로그래밍
 
-##비동기 프로그램이란?
+## 비동기 프로그램이란?
 
 : 비동기적 통신이며 실시간 응답을 필요로 하지 않는 상황에서 사용 (Notification, Email 전송, Push 알림)
 
@@ -22,7 +22,7 @@
 
 (만약 CorePoolSize를 3개로 설정했는데 요청이 4개가 들어온다면 4번째 쓰레드를 생성하는 것이 아니라 WorkQueue에 담고 WorkQueue의 처음에 지정한 사이즈만큼 요청이 다 쌓였으면 MaxPoolSize 만큼 쓰레드 생성)
 
-- ThreadPool 생성 시, 주의(고려) 사항
+### ThreadPool 생성 시, 주의(고려) 사항
 
 1. CorePoolSize 값을 너무 크게 설정할 경우, SideEffect 고려
 
@@ -35,20 +35,24 @@
 -> WorkQueue 가 null 이면 NullPointerException 발생. 
 
 
-####정리
+
+
+#### 정리
 1. if ( Thread 수 < CorePoolSize ) : 새로운 쓰레드 생성.
 2. if ( Thread 수 > CorePoolSize ) : WorkQueue에 요청 추가.
 3. if ( Queue FUll && Thread 수 < MaxPoolSize ) : 새로운 쓰레드 생성.
 4. if ( Queue Full && Thread 수 > MaxPoolSize ) : 요청 거절 (무시)
 
----
+--
 ### Spring에서 비동기 동작 원리
 
 ![KakaoTalk_20230818_112906686](https://github.com/htkwon/AsyncProgramming/assets/117131575/0fa2de78-7e68-40e4-bacf-7da1e9103f35)
 
 <해당 프로젝트 기준>
 
-Caller (AsyncService)가 EmailService를 호출 하는데 Spring이 개입하여 순수한 EmailService bean이 아니라 해당 EmailService bean을 매핑(Proxy 객체로)한 EmailService를 사용하게 하여 비동기적으로 동작할 수 있게 하는 메커니즘
+Caller (AsyncService)가 EmailService를 호출 하는데 Spring이 개입하여 순수한 EmailService bean이 아니라 해당 EmailService bean을 매핑(Proxy 객체로)한 EmailService를 사용하게 하여 비동기적으로 동작할 수 있게 하는 메커니즘 
+
+
 
 
 - 해당 프로젝트에서 asyncCall_2 와 asyncCall_3 의 문제점
