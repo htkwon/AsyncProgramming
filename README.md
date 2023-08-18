@@ -9,7 +9,9 @@
 
 이를 위해, spring boot에서는 ThreadPool을 정의할 필요가 있다. (TheadPool을 생성하여 Async 적업을 처리.)
 
----
+----
+
+
 ### ThreadPool 생성 옵션 
 
 1. CorePoolSize : 쓰레드를 최소한 몇 개 가지고 있을 것인지.
@@ -43,7 +45,9 @@
 3. if ( Queue FUll && Thread 수 < MaxPoolSize ) : 새로운 쓰레드 생성.
 4. if ( Queue Full && Thread 수 > MaxPoolSize ) : 요청 거절 (무시)
 
---
+----
+
+
 ### Spring에서 비동기 동작 원리
 
 ![KakaoTalk_20230818_112906686](https://github.com/htkwon/AsyncProgramming/assets/117131575/0fa2de78-7e68-40e4-bacf-7da1e9103f35)
